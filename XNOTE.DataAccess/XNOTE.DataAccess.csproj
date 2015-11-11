@@ -52,13 +52,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Migrations\201511101519373_AddUserPhoto.cs" />
+    <Compile Include="Migrations\201511101519373_AddUserPhoto.Designer.cs">
+      <DependentUpon>201511101519373_AddUserPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="XnoteContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XNOTE.Contracts\XNOTE.Contracts.csproj">
+      <Project>{4575f09f-eaf9-4dcb-ad8c-a93f4714f89a}</Project>
+      <Name>XNOTE.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XNOTE.Domain\XNOTE.Domain.csproj">
+      <Project>{26ca0182-45bd-41f1-82b9-3779ba9eb668}</Project>
+      <Name>XNOTE.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511101519373_AddUserPhoto.resx">
+      <DependentUpon>201511101519373_AddUserPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
