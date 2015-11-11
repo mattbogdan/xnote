@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>XNOTE - Login</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../Content/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../Content/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../../Content/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../Content/creative.css" type="text/css">
+
+      <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../Content/font-awesome/css/font-awesome.min.css" type="text/css">
+
+      <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+      <script src="../../Scripts/knockout-3.3.0.js"></script>
+    <script src="login.js"></script> 
+
+  </head>
+
+  <body>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <section class="bg-primary" id="about">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6 col-lg-offset-2 text-center">
+                        <!--<a><i class="fa fa-home fa-4x home_icon"></i></a> -->
+                        <h2 class="dark">Sign in</h2> 
+                          <span class="input input--isao">
+                            <input class="input__field input__field--isao" type="text" id="input-38" data-bind="value: username"/>
+                            <label class="input__label input__label--isao" for="input-38" data-content="Email">
+                              <span class="input__label-content input__label-content--isao">E-mail</span>
+                            </label>
+                          </span>
+                          <span class="input input--isao">
+                            <input class="input__field input__field--isao" type="password" id="input-39" data-bind="value: password"/>
+                            <label class="input__label input__label--isao" for="input-39" data-content="Password">
+                              <span class="input__label-content input__label-content--isao">Password</span>
+                            </label>
+                          </span>
+                          <p></p>
+                          <a href="#about" class="btn btn-primary btn-xl page-scroll" data-bind="click: login">OK, LET'S GO</a>
+                          
+                          <div style="margin:20px">
+                            <p style="color: #222; font-size: 14px">Do not have account yet? <a href="../Register/register.html" style="color: #ee4b28">Register now!</a> </p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <script src="../../Scripts/classie.js"></script>
+    <script>
+      (function() {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+          (function() {
+            // Make sure we trim BOM and NBSP
+            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+            String.prototype.trim = function() {
+              return this.replace(rtrim, '');
+            };
+          })();
+        }
+
+        [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+          // in case the input is already filled..
+          if( inputEl.value.trim() !== '' ) {
+            classie.add( inputEl.parentNode, 'input--filled' );
+          }
+
+          // events:
+          inputEl.addEventListener( 'focus', onInputFocus );
+          inputEl.addEventListener( 'blur', onInputBlur );
+        } );
+
+        function onInputFocus( ev ) {
+          classie.add( ev.target.parentNode, 'input--filled' );
+        }
+
+        function onInputBlur( ev ) {
+          if( ev.target.value.trim() === '' ) {
+            classie.remove( ev.target.parentNode, 'input--filled' );
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
