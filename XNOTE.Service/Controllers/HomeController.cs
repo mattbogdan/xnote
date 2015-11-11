@@ -10,9 +10,8 @@ namespace XNOTE.Service.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
             return View();
+            //return RedirectToAction("Index", "Help");
         }
     }
 }
