@@ -1,4 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace XNOTE.Service.Controllers
 {
@@ -6,7 +10,9 @@ namespace XNOTE.Service.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Help");
+            ViewBag.Title = "Home Page";
+
+            return View();
         }
     }
 }
